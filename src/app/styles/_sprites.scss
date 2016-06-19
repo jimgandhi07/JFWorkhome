@@ -1,0 +1,40 @@
+$yeoman: -0px -0px 111px 97px;
+$angular: -0px -97px 108px 108px;
+$bootstrap: -0px -205px 108px 108px;
+$browsersync: -0px -313px 108px 108px;
+$gulp: -0px -421px 108px 108px;
+$jasmine: -0px -529px 108px 108px;
+$karma: -0px -637px 108px 108px;
+$node-sass: -0px -745px 108px 108px;
+$protractor: -0px -853px 108px 108px;
+$ui-bootstrap: -0px -961px 108px 108px;
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 3);
+}
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 4);
+}
+@function sprite-width($sprite) {
+   @return nth($sprite, 3);
+}
+@function sprite-height($sprite) {
+   @return nth($sprite, 4);
+}
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 1);
+  $sprite-offset-y: nth($sprite, 2);
+  background-position: $sprite-offset-x $sprite-offset-y;
+}
+
+@mixin sprite($sprite, $display: block) {
+   @include sprite-position($sprite);
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: $display;
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+.icon {
+  background-image: url('../assets/images/sprite.png');
+}
